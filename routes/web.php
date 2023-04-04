@@ -26,3 +26,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::group([
+    'middleware' => ['auth', 'isAdmin'],
+    'prefix' => 'admin',
+], function () {
+});
