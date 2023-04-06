@@ -23,7 +23,7 @@
                             <td>
                                 <a href="{{ route('quizzes.edit', $quiz->id) }}"
                                     class="btn btn-sm btn-primary">Düzenle</a>
-                                <a href="#" class="btn btn-sm btn-danger">Sil</a>
+                                <a href="{{ route('quizzes.destroy', $quiz->id) }}" class="btn btn-sm btn-danger">Sil</a>
                             </td>
                         </tr>
                     @endforeach
