@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QuizCreateRequest;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
 
@@ -28,9 +29,10 @@ class QuizController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(QuizCreateRequest $request)
     {
-        return $request->post();
+        Quiz::create($request->post());
+        return redirect()->route('quizzes.index')->withSuccess('Quiz Oluşturma Başarılı');
     }
 
     /**
