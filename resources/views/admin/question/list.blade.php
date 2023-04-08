@@ -36,7 +36,7 @@
                             <td>
                                 <a href="{{ route('questions.edit', [$quiz->id, $question->id]) }}"
                                     class="btn btn-sm btn-primary">Düzenle</a>
-                                <a href="{{ route('quizzes.destroy', [$quiz->id, $question->id]) }}"
+                                <a href="{{ route('questions.destroy', [$quiz->id, $question->id]) }}"
                                     class="btn btn-sm btn-danger">Sil</a>
                             </td>
                         </tr>
