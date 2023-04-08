@@ -35,7 +35,11 @@
                                     @break
                                 @endswitch
                             </td>
-                            <td>{{ $quiz->finished_at ? $quiz->finished_at->diffForHumans() : '-' }}</td>
+                            <td>
+                                <span title="{{ $quiz->finished_at }}">
+                                    {{ $quiz->finished_at ? $quiz->finished_at->diffForHumans() : '-' }}
+                                </span>
+                            </td>
                             <td>
                                 <a href="{{ route('quizzes.edit', $quiz->id) }}"
                                     class="btn btn-sm btn-primary">Düzenle</a>
