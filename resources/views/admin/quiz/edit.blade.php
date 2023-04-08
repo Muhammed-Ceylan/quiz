@@ -18,12 +18,24 @@
                     <label>Bitiş Tarihi Olacak Mı?</label>
                 </div>
                 <div class="form-group mt-2">
+                    <label>Quiz Durumu</label>
+                    <select name="status" class="form-control">
+                        <option @if ($quiz->questions_count < 4) disabled @endif
+                            @if ($quiz->status === 'publish') selected @endif value="publish">
+                            Aktif
+                        </option>
+                        <option @if ($quiz->status === 'passive') selected @endif value="passive">Pasif</option>
+                        <option @if ($quiz->status === 'draft') selected @endif value="draft">Taslak</option>
+                    </select>
+                </div>
+                <div class="form-group mt-2">
                     <label for="finished_at">Quiz Bitiş Tarihi</label>
                     <input type="datetime-local" name="finished_at" class="form-control"
                         value="{{ $quiz->finished_at }}">
                 </div>
                 <div class="form-group mt-2">
-                    <button type="submit" class="btn btn-success btn-sm btn-block form-control">Quiz Güncelle</button>
+                    <button type="submit" class="btn btn-outline-success btn-sm btn-block form-control">Quiz
+                        Güncelle</button>
                 </div>
             </form>
         </div>
