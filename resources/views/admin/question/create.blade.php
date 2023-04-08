@@ -42,7 +42,8 @@
                     </select>
                 </div>
                 <div class="form-group mt-2">
-                    <button type="submit" class="btn btn-success btn-sm btn-block form-control">Soru Oluştur</button>
+                    <button type="submit" class="btn btn-outline-success form-control btn-sm btn-block ">Soru
+                        Oluştur</button>
                 </div>
         </div>
         </form>
