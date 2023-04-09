@@ -3,8 +3,29 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">
-                <a href="{{ route('quizzes.create') }}" class="btn btn-sm btn-primary"> Quiz Oluştur</a>
+                <a href="{{ route('quizzes.create') }}" class="btn btn-sm btn-primary float-right"> Quiz Oluştur</a>
             </h5>
+            <form method="GET" action="">
+                <div class="row">
+                    <div class="col-md-2">
+                        <input type="text" name=title value="{{ request()->get('title') }}"
+                            placeholder="Quiz Adı"class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                        <select name="status" class="form-control" onchange="this.form.submit()">
+                            <option value="">Durum Seçiniz</option>
+                            <option @if (request()->get('status') == 'publish') selected @endif value="publish">Aktif</option>
+                            <option @if (request()->get('status') == 'passive') selected @endif value="passive">Pasif</option>
+                            <option @if (request()->get('status') == 'draft') selected @endif value="draft">Taslak</option>
+                        </select>
+                    </div>
+                    @if (request()->get('title') || request()->get('status'))
+                        <div class="col-md-2">
+                            <a href="{{ route('quizzes.index') }}" class="btn btn-outline-secondary">Sıfırla</a>
+                        </div>
+                    @endif
+                </div>
+            </form>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -27,7 +48,7 @@
                                     @break
 
                                     @case('passive')
-                                        <span class="badge rounded-pill text-bg-danger">Aktif</span>
+                                        <span class="badge rounded-pill text-bg-danger">Pasif</span>
                                     @break
 
                                     @case('draft')
@@ -53,7 +74,8 @@
 
                 </tbody>
             </table>
-            {{ $quizzes->links() }}
+            {{-- Eklenmiş olan filtrelemelerinde link üzerinde gitmesini sağlar --}}
+            {{ $quizzes->withQueryString()->links() }}
         </div>
     </div>
 </x-app-layout>
