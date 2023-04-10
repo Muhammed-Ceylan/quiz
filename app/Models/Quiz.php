@@ -16,6 +16,7 @@ class Quiz extends Model
         'title',
         'description',
         'finished_at',
+        'slug',
     ];
 
     protected $dates = ['finished_at'];
@@ -34,6 +35,7 @@ class Quiz extends Model
     {
         return [
             'slug' => [
+                'onUpdate' => true,
                 'source' => 'title',
             ]
         ];
