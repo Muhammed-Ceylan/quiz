@@ -30,7 +30,8 @@
                 <div class="col-md-8">
                     {{ $quiz->description }}
                     </p>
-                    <a href="#" class="btn btn-primary btn-sm form-control mt-2">Quize Katıl</a>
+                    <a href="{{ route('quiz.join', $quiz->slug) }}"
+                        class="btn btn-primary btn-sm form-control mt-2">Quize Katıl</a>
                 </div>
             </div>
         </div>

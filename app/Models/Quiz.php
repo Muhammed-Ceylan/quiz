@@ -17,6 +17,7 @@ class Quiz extends Model
         'description',
         'finished_at',
         'slug',
+        'status',
     ];
 
     protected $dates = ['finished_at'];
